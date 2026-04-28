@@ -132,6 +132,53 @@ button {
   width: 121px;
 }
 
+.qrgenie-composer-label {
+  inset: 0;
+  position: absolute;
+}
+
+.qrgenie-input {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  height: 19px;
+  left: 15px;
+  line-height: normal;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  resize: none;
+  top: 18px;
+  width: 320px;
+}
+
+.qrgenie-input::placeholder {
+  color: #aca9af;
+  opacity: 1;
+}
+
+.qrgenie-input::-webkit-input-placeholder {
+  color: #aca9af;
+  opacity: 1;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .qrgenie-paperclip {
   bottom: 18px;
   display: block;

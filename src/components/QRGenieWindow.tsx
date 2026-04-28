@@ -1,8 +1,9 @@
+import { useId } from "react";
+
 type QRGenieWindowProps = {
   title: string;
   prompt: string;
   timestamp: string;
-  draftText?: string;
   characterCount?: number;
   maxCharacters?: number;
 };
@@ -25,10 +26,11 @@ export function QRGenieWindow({
   title,
   prompt,
   timestamp,
-  draftText = "Type your message",
   characterCount = 0,
   maxCharacters = 2000
 }: QRGenieWindowProps) {
+  const composerId = useId();
+
   return (
     <section className="qrgenie-frame" aria-label="QRGenie chat composer" data-node-id="1:3">
       <div className="qrgenie-root" data-node-id="1:4">
@@ -44,9 +46,18 @@ export function QRGenieWindow({
               <p className="qrgenie-counter" data-node-id="1:12">
                 {characterCount}/{maxCharacters}
               </p>
-              <p className="qrgenie-placeholder" data-node-id="1:13">
-                {draftText}
-              </p>
+              <label className="qrgenie-composer-label" htmlFor={composerId}>
+                <span className="sr-only">Type your message</span>
+              </label>
+              <textarea
+                aria-label="Type your message"
+                className="qrgenie-input"
+                data-node-id="1:13"
+                id={composerId}
+                maxLength={maxCharacters}
+                placeholder="Type your message"
+                rows={1}
+              />
               <img alt="" className="qrgenie-paperclip" data-node-id="1:11" src={assets.paperclip} />
               <img alt="" className="qrgenie-composer-divider" data-node-id="1:10" src={assets.composerDivider} />
               <img alt="" className="qrgenie-send" data-node-id="1:9" src={assets.send} />
