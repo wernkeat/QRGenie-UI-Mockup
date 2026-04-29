@@ -54,6 +54,7 @@ button {
   overflow: hidden;
   position: relative;
   transition: height 160ms ease;
+  --qrgenie-visible-card-offset: -2.5px;
   width: 413px;
 }
 
@@ -82,13 +83,14 @@ button {
   bottom: 752px;
   height: 88px;
   position: absolute;
-  right: 3px;
+  right: 0;
+  transform: translateX(var(--qrgenie-visible-card-offset));
   transition: transform 160ms ease;
   width: 413px;
 }
 
 .qrgenie-frame--feedback-open .qrgenie-composer {
-  transform: translateY(153px);
+  transform: translate(var(--qrgenie-visible-card-offset), 153px);
 }
 
 .qrgenie-composer-bg {
@@ -220,7 +222,8 @@ button {
   bottom: 849px;
   height: 131px;
   position: absolute;
-  right: 3px;
+  right: 0;
+  transform: translateX(var(--qrgenie-visible-card-offset));
   width: 413px;
 }
 
