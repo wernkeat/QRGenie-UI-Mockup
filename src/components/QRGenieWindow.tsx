@@ -1,4 +1,17 @@
 import { useId, useState } from "react";
+import close from "../assets/close.png";
+import composerBackground from "../assets/composer-background.png";
+import composerDivider from "../assets/composer-divider.png";
+import logo from "../assets/logo.png";
+import minus from "../assets/minus.png";
+import paperclip from "../assets/paperclip.png";
+import plus from "../assets/plus.png";
+import promptBackground from "../assets/prompt-background.png";
+import send from "../assets/send.png";
+import thumbDown from "../assets/thumb-down.png";
+import thumbDownActive from "../assets/thumb-down-active.png";
+import thumbUp from "../assets/thumb-up.png";
+import thumbUpActive from "../assets/thumb-up-active.png";
 
 type QRGenieWindowProps = {
   title: string;
@@ -13,7 +26,9 @@ type FeedbackSelection = "up" | "down" | null;
 function FeedbackThumbIcon({ direction, active }: { direction: "up" | "down"; active: boolean }) {
   const isFilled = active;
   const src = isFilled
-    ? assets.thumbUpActive
+    ? direction === "up"
+      ? assets.thumbUpActive
+      : assets.thumbDownActive
     : direction === "up"
       ? assets.thumbUp
       : assets.thumbDown;
@@ -31,18 +46,19 @@ function FeedbackThumbIcon({ direction, active }: { direction: "up" | "down"; ac
 }
 
 const assets = {
-  composerBackground: "https://www.figma.com/api/mcp/asset/a6762503-99a3-4036-bd9b-8da5e7ae83aa",
-  send: "https://www.figma.com/api/mcp/asset/d9b36da9-bdcf-4a3f-a7ce-637f5a016d68",
-  composerDivider: "https://www.figma.com/api/mcp/asset/30b3931b-4778-493e-9d51-202b0f7a9766",
-  paperclip: "https://www.figma.com/api/mcp/asset/ef2835b7-743b-429d-bf89-fcbbc36661b1",
-  promptBackground: "https://www.figma.com/api/mcp/asset/e294f479-8ddd-4c19-a0e7-d105822149a3",
-  close: "https://www.figma.com/api/mcp/asset/e5f72ffe-d6b8-4bd6-a278-7e4bc045b868",
-  plus: "https://www.figma.com/api/mcp/asset/d0fd39d6-f3d0-4736-a7a6-bb795de58f7e",
-  minus: "https://www.figma.com/api/mcp/asset/36588c0c-d754-40b9-a35b-35828c0a8ee5",
-  logo: "https://www.figma.com/api/mcp/asset/f93e5d88-e492-4c85-8fe2-8bdf74a6cb6f",
-  thumbDown: "https://www.figma.com/api/mcp/asset/63d9d5e7-d018-4b40-8b9c-f2da91033005",
-  thumbUp: "https://www.figma.com/api/mcp/asset/b9b55e6b-345f-4e35-ab6a-bf15d15ed300",
-  thumbUpActive: "https://www.figma.com/api/mcp/asset/5c478925-f3bf-44a5-a4cf-ace826d59421"
+  close,
+  composerBackground,
+  composerDivider,
+  logo,
+  minus,
+  paperclip,
+  plus,
+  promptBackground,
+  send,
+  thumbDown,
+  thumbDownActive,
+  thumbUp,
+  thumbUpActive
 } as const;
 
 export function QRGenieWindow({

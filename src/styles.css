@@ -278,7 +278,6 @@ button {
 
 .qrgenie-feedback-image--down.qrgenie-feedback-image--filled {
   height: 18px;
-  transform: rotate(180deg) scaleX(-1);
   width: 16px;
 }
 
